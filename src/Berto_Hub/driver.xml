@@ -1,0 +1,140 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Hub</name>
+	<version>2</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>10/10/2018 8:49 PM</created>
+	<modified>10/10/2018 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Berto Hub" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_Hub</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+			<property>
+				<name>Hub Address</name>
+				<type>STRING</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>MAC Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Status</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Homekit Devices</name>
+				<type>DEVICE_SELECTOR</type>
+				<readonly>false</readonly>
+				<default />
+				<multiselect>true</multiselect>
+				<items>
+					<item>light.c4i</item>
+					<item>light_v2.c4i</item>
+					<item>relaysingle_electronicgate_c4.c4i</item>
+					<item>relaysingle_door_c4.c4i</item>
+					<item>relaysingle_doorlock_c4.c4i</item>
+					<item>relaysingle_drapes_c4.c4i</item>
+					<item>relaysingle_fan_c4.c4i</item>
+					<item>relaysingle_fountain_c4.c4i</item>
+					<item>relaycontact_garagedoor_c4.c4i</item>
+					<item>relaysingle_drivewayheater_c4.c4i</item>
+					<item>relaysingle_gasfireplace_c4.c4i</item>
+					<item>relaysingle_pump_c4.c4i</item>
+					<item>relaysingle_radiantfloor_c4.c4i</item>
+					<item>relaysingle_motorizedlift_c4.c4i</item>
+					<item>relaysingle_motorizedscreen_c4.c4i</item>
+					<item>relaysingle_relay_c4.c4i</item>
+					<item>blind.c4i</item>
+				</items>
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+ 	   <actions>
+ 		   <action>
+ 			   <name>Restart MQTT</name>
+ 			   <command>RESTART_MQTT</command>
+ 		   </action>
+ 		   <action>
+ 			   <name>Publish Homekit Configuration</name>
+ 			   <command>PUBLISH_HOMEKIT</command>
+ 		   </action>
+ 	   </actions>
+	</config>
+    <connections>
+        <connection>
+          <id>1</id>
+          <facing>1</facing>
+          <connectionname>Flic Buttons</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>FLIC_LINK</classname>
+              <autobind>True</autobind>
+            </class>
+          </classes>
+        </connection>
+		<connection>
+			<id>5000</id>
+			<connectionname>Berto_Hub</connectionname>
+			<facing>6</facing>
+			<type>2</type>
+			<consumer>false</consumer>
+			<audiosource>false</audiosource>
+			<videosource>false</videosource>
+			<linelevel>false</linelevel>
+			<classes>
+				<class>
+					<classname>Berto_Hub</classname>
+				</class>
+			</classes>
+		</connection>
+  	  </connections>
+</devicedata>

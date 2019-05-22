@@ -1,0 +1,13 @@
+[Unit]
+Description=Berto Hub Server
+Wants=network-online.target
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /usr/local/lib/node_modules/berto-hub/server.js --flic --homekit
+ExecStop=/bin/ps -e -opid,cmd | /bin/grep berto | /bin/grep -v grep | /bin/awk '{print $1}' | /usr/bin/xargs /bin/kill > /dev/null 2>&1
+ExecStop=/bin/pidof flicd > /dev/null && /bin/kill `/bin/pidof flicd`
+
+[Install]
+WantedBy=multi-user.target

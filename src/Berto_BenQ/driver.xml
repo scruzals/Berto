@@ -1,0 +1,241 @@
+﻿<devicedata>
+	<copyright>Copyright Berto Ltd. All rights reserved.</copyright>
+	<creator>David Massot</creator>
+	<manufacturer>Berto Ltd</manufacturer>
+	<name>Berto BenQ</name>
+	<version>1</version>
+	<created>02/02/2017 8:47 PM</created>
+	<modified>06/02/2017 8:47 PM</modified>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>ip</controlmethod>
+	<driver>DriverWorks</driver>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+		<irsettings />
+		<power_command_delay>0</power_command_delay>
+		<power_delay>30</power_delay>
+		<power_management_method>DiscreteCodes</power_management_method>
+	    <properties>
+	      <property>
+	        <name>IP Address</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Power On Delay</name>
+			<type>RANGED_INTEGER</type>
+			<minimum>0</minimum>
+			<maximum>120</maximum>
+			<default>60</default>
+			<readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Power Off Delay</name>
+			<type>RANGED_INTEGER</type>
+			<minimum>0</minimum>
+			<maximum>120</maximum>
+			<default>30</default>
+			<readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Status</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Red Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Green Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Yellow Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Blue Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 1 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 2 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 3 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Hash Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Star Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+		  <property>
+			  <name>Driver Managament</name>
+			  <type>LABEL</type>
+			  <default>Driver Management</default>
+		  </property>
+	      <property>
+	        <name>Version</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Auto Update</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+			  <item>Force</item>
+	        </items>
+	      </property>
+	      <property>
+	        <name>Debug Mode</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+	        </items>
+	      </property>
+	    </properties>
+	</config>
+	<proxy proxybindingid="5000" name="BenQ" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">projector</proxy>
+	<connections>
+	    <connection>
+	      <id>1000</id>
+	      <type>5</type>
+	      <connectionname>HDMI 1</connectionname>
+	      <consumer>True</consumer>
+	      <linelevel>True</linelevel>
+	      <classes>
+	        <class>
+	          <classname>HDMI</classname>
+	        </class>
+	      </classes>
+	    </connection>
+	    <connection>
+	      <id>1001</id>
+	      <type>5</type>
+	      <connectionname>HDMI 2</connectionname>
+	      <consumer>True</consumer>
+	      <linelevel>True</linelevel>
+	      <classes>
+	        <class>
+	          <classname>HDMI</classname>
+	        </class>
+	      </classes>
+	    </connection>
+	    <connection>
+	      <id>5000</id>
+	      <type>2</type>
+	      <connectionname>Projector</connectionname>
+	      <consumer>False</consumer>
+	      <linelevel>False</linelevel>
+	      <classes>
+	        <class>
+	          <classname>TV</classname>
+	        </class>
+	      </classes>
+	    </connection>
+	    <connection>
+	      <id>7000</id>
+	      <type>7</type>
+	      <connectionname>Room Control</connectionname>
+	      <consumer>False</consumer>
+	      <linelevel>True</linelevel>
+	      <classes>
+	        <class>
+	          <classname>AUDIO_SELECTION</classname>
+	        </class>
+	        <class>
+	          <classname>VIDEO_SELECTION</classname>
+	        </class>
+	        <class>
+	          <classname>AUDIO_VOLUME</classname>
+	        </class>
+	      </classes>
+	    </connection>
+	  </connections>
+	<capabilities>
+		<has_discrete_volume_control>False</has_discrete_volume_control>
+		<has_up_down_volume_control>True</has_up_down_volume_control>
+		<has_discrete_input_select>True</has_discrete_input_select>
+		<has_toad_input_select>False</has_toad_input_select>
+		<has_discrete_channel_select>False</has_discrete_channel_select>
+		<has_channel_up_down>False</has_channel_up_down>
+		<has_discrete_bass_control>False</has_discrete_bass_control>
+		<has_up_down_bass_control>False</has_up_down_bass_control>
+		<has_discrete_treble_control>False</has_discrete_treble_control>
+		<has_up_down_treble_control>False</has_up_down_treble_control>
+		<has_discrete_balance_control>False</has_discrete_balance_control>
+		<has_up_down_balance_control>False</has_up_down_balance_control>
+		<has_discrete_loudness_control>False</has_discrete_loudness_control>
+		<has_toggle_loudness_control>False</has_toggle_loudness_control>
+		<has_discrete_mute_control>True</has_discrete_mute_control>
+		<has_toggle_mute_control>False</has_toggle_mute_control>
+		<has_audio>True</has_audio>
+	</capabilities>
+</devicedata>

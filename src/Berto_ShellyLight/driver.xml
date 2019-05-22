@@ -1,0 +1,313 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Shelly Light</name>
+	<version>1</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>10/10/2018 8:49 PM</created>
+	<modified>10/10/2018 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Shelly Light" >light_v2</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+			<property>
+				<name>Registered Devices</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Selected Device</name>
+		        <type>STRING</type>
+		        <readonly>true</readonly>
+		        <default />
+			</property>
+			<property>
+				<name>Model</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>MAC Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>IP Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Firmware</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Mode</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Channel</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default>0</default>
+			</property>
+			<property>
+				<name>State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Level</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Red</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Green</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Blue</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>White</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Brightness</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Effect</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Status</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+		<actions>
+			<action>
+				<name>Search For Devices</name>
+				<command>FIND_DEVICES</command>
+			</action>
+		</actions>
+		<commands>
+			<command>
+				<name>Set White</name>
+				<description>Setting The White Level To PARAM1</description>
+				<params>
+					<param>
+						<name>White</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>0</minimum>
+						<maximum>255</maximum>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>Set Color</name>
+				<description>Setting The RGB Color To PARAM1</description>
+				<params>
+					<param>
+						<name>RGB</name>
+						<type>COLOR_SELECTOR</type>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>Set Temperature</name>
+				<description>Setting The Temperature To PARAM1</description>
+				<params>
+					<param>
+						<name>Temperature</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>3000</minimum>
+						<maximum>6500</maximum>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>Set Effect</name>
+				<description>Setting The Effect To PARAM1</description>
+				<params>
+					<param>
+						<name>Effect</name>
+						<type>LIST</type>
+						<items>
+							<item>Off</item>
+							<item>Meteor Shower</item>
+							<item>Gradual Change</item>
+							<item>Breath</item>
+							<item>Flash</item>
+							<item>Gradual On/Off</item>
+							<item>Red/Green Change</item>
+						</items>
+					</param>
+				</params>
+			</command>
+		</commands>
+	</config>
+    <capabilities>
+      <dimmer>True</dimmer>
+      <on_off>True</on_off>
+      <set_level>True</set_level>
+      <ramp_level>True</ramp_level>
+      <min_max>False</min_max>
+      <click_rates>True</click_rates>
+      <hold_rates>True</hold_rates>
+      <cold_start>True</cold_start>
+      <has_leds>False</has_leds>
+      <supports_broadcast_scenes>False</supports_broadcast_scenes>
+      <supports_multichannel_scenes>False</supports_multichannel_scenes>
+      <hide_proxy_properties>False</hide_proxy_properties>
+      <hide_proxy_events>False</hide_proxy_events>
+	  <advanced_scene_support>True</advanced_scene_support>
+	  <reduced_als_support>False</reduced_als_support>
+      <load_group_support>False</load_group_support>
+      <buttons_are_virtual>True</buttons_are_virtual>
+    </capabilities>
+    <connections>
+		<connection>
+			<id>100</id>
+			<facing>1</facing>
+			<connectionname>MQTT Bridge</connectionname>
+			<type>1</type>
+			<consumer>True</consumer>
+			<audiosource>False</audiosource>
+			<videosource>False</videosource>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>MQTT_LINK</classname>
+					<autobind>True</autobind>
+				</class>
+			</classes>
+		</connection>
+        <connection>
+          <id>300</id>
+          <facing>6</facing>
+          <connectionname>Top Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>301</id>
+          <facing>6</facing>
+          <connectionname>Bottom Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>302</id>
+          <facing>6</facing>
+          <connectionname>Toggle Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>5000</id>
+          <facing>6</facing>
+          <connectionname>Light</connectionname>
+          <type>2</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>LIGHT_V2</classname>
+            </class>
+          </classes>
+        </connection>
+	</connections>
+</devicedata>

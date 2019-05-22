@@ -1,0 +1,220 @@
+<devicedata>
+	<copyright>Copyright Berto Ltd.	All rights reserved.</copyright>
+	<creator>David Massot</creator>
+	<manufacturer>Berto Ltd</manufacturer>
+	<name>Berto Cloud</name>
+	<version>7</version>
+	<created>14/10/2017 21:10</created>
+	<modified>14/10/2017 21:10</modified>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<OnlineCategory>others</OnlineCategory>
+	<config>
+		<power_management_method>AlwaysOn</power_management_method>
+		<power_command_delay>0</power_command_delay>
+		<power_delay>0</power_delay>
+		<power_command_needed>False</power_command_needed>
+		<script file="squish.lua" encryption="2" />
+		<properties>
+			<property>
+				<name>Email Address</name>
+				<type>STRING</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Account</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Subscription Expiry</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Notification</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Enable Berto Dynamic DNS</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Yes</default>
+				<items>
+					<item>Yes</item>
+					<item>No</item>
+				</items>
+			</property>
+			<property>
+				<name>Berto Dynamic DNS Hostname</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default></default>
+			</property>
+			<property>
+				<name>Hostname</name>
+				<type>STRING</type>
+				<default></default>
+			</property>
+			<property>
+				<name>Remote Access Network</name>
+				<type>STRING</type>
+				<default />
+			</property>
+			<property>
+				<name>Berto Driver</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Room</name>
+				<type>DEVICE_SELECTOR</type>
+				<readonly>false</readonly>
+				<default />
+				<multiselect>false</multiselect>
+				<items>
+					<item>roomdevice.c4i</item>
+				</items>
+			</property>
+			<property>
+				<name>Management Action</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default />
+				<items>
+					<item>None</item>
+					<item>Install Driver Into Room</item>
+					<item>Upgrade Driver</item>
+					<item>Upgrade All Drivers</item>
+					<item>List Installed Drivers</item>
+					<item>Refresh Drivers List</item>
+					<item>Reset Configuration</item>
+				</items>
+			</property>
+			<property>
+				<name>Enable Remote Access</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>No</default>
+				<items>
+					<item>Yes</item>
+					<item>No</item>
+				</items>
+			</property>
+			<property>
+				<name>Enable Watchdog</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>No</default>
+				<items>
+					<item>Yes</item>
+					<item>No</item>
+				</items>
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+		<commands>
+			<command>
+				<name>EXECUTE_COMMAND</name>
+				<description>Execute PARAM1 On Controller</description>
+				<params>
+					<param>
+						<name>Command</name>
+						<type>STRING</type>
+						<default></default>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>SEND_MAIL</name>
+				<description>Send Email To PARAM1</description>
+				<params>
+					<param>
+						<name>To</name>
+						<type>STRING</type>
+					</param>
+					<param>
+						<name>Subject</name>
+						<type>STRING</type>
+					</param>
+					<param>
+						<name>Message</name>
+						<type>STRING</type>
+					</param>
+				</params>
+			</command>
+		</commands>
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	</config>
+	<proxy proxybindingid="5000" name="Cloud" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">uibutton</proxy>
+	<connections>
+		<connection>
+			<id>5000</id>
+			<facing>6</facing>
+			<connectionname>UIBUTTON</connectionname>
+			<type>2</type>
+			<consumer>False</consumer>
+			<audiosource>True</audiosource>
+			<videosource>True</videosource>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>UIBUTTON</classname>
+				</class>
+			</classes>
+		</connection>
+	</connections>
+	<capabilities>
+		<navigator_display_option proxybindingid="5000">
+			<display_icons>
+				<Icon height="60" width="60">controller://driver/Berto_Cloud/icons/device/experience_off.png</Icon>
+				<state id="On">
+					<Icon height="60" width="60">controller://driver/Berto_Cloud/icons/device/experience_on.png</Icon>
+				</state>
+				<state id="Off">
+					<Icon height="60" width="60">controller://driver/Berto_Cloud/icons/device/experience_off.png</Icon>
+				</state>
+			</display_icons>
+		</navigator_display_option>
+	</capabilities>
+</devicedata>

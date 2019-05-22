@@ -1,0 +1,185 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Home Assistant</name>
+	<version>1</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>17/04/2019 8:49 PM</created>
+	<modified>17/04/2019 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Home Assistant" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_HomeAssistant</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+	      <property>
+	        <name>Home Assistant MQTT Broker</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Username</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	  	  <property>
+			  <name>Password</name>
+	  		  <type>STRING</type>
+	  		  <default></default>
+	  		  <password>true</password>
+	  	  </property>
+	      <property>
+	        <name>Discovery Topic</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default>homeassistant</default>
+	      </property>
+		  <property>
+			<name>Home Assistant Devices</name>
+	        <type>DEVICE_SELECTOR</type>
+			<readonly>false</readonly>
+			<default />
+			<multiselect>true</multiselect>
+			<items>
+				<item>light.c4i</item>
+				<item>light_v2.c4i</item>
+				<item>relaysingle_drivewayheater_c4.c4i</item>
+				<item>relaysingle_fountain_c4.c4i</item>
+				<item>relaysingle_gasfireplace_c4.c4i</item>
+				<item>relaysingle_gasfireplaceswitch_c4.c4i</item>
+				<item>relaysingle_pump_c4.c4i</item>
+				<item>relaysingle_radiantfloor_c4.c4i</item>
+				<item>relaysingle_fan_c4.c4i</item>
+				<item>relaysingle_doorlock_c4.c4i</item>
+				<item>relaysingle_door_c4.c4i</item>
+				<item>relaysingle_drapes_c4.c4i</item>
+				<item>relaysingle_electronicgate_c4.c4i</item>
+				<item>relaysingle_garagedoor_c4.c4i</item>
+				<item>relaysingle_motorizedlift_c4.c4i</item>
+				<item>relaysingle_motorizedscreen_c4.c4i</item>
+				<item>relaysingle_relay_c4.c4i</item>
+				<item>relaysingle_sprinklers_c4.c4i</item>
+				<item>blind.c4i</item>
+				<item>contactsingle_carbonmonoxidedetector_c4.c4i</item>
+				<item>contactsingle_contactswitch_c4.c4i</item>
+				<item>contactsingle_doorbell_c4.c4i</item>
+				<item>contactsingle_doorcontactsensor_c4.c4i</item>
+				<item>contactsingle_drivewaysensor_c4.c4i</item>
+				<item>contactsingle_garagedoorsensor_c4.c4i</item>
+				<item>contactsingle_gate_c4.c4i</item>
+				<item>contactsingle_glassbreakdetector_c4.c4i</item>
+				<item>contactsingle_heatdetector_c4.c4i</item>
+				<item>contactsingle_humiditysensor_c4.c4i</item>
+				<item>contactsingle_irbeam_c4.c4i</item>
+				<item>contactsingle_motionsensor.c4i</item>
+				<item>contactsingle_motionsensor_c4.c4i</item>
+				<item>contactsingle_pressuresensor_c4.c4i</item>
+				<item>contactsingle_smokedetector_c4.c4i</item>
+				<item>contactsingle_watersensor_c4.c4i</item>
+				<item>contactsingle_windowcontactsensor_c4.c4i</item>
+				<item>relaycontact_electronicgate_c4.c4i</item>
+				<item>relaycontact_garagedoor_c4.c4i</item>
+			</items>
+		</property>
+	      <property>
+	        <name>Last Update</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Last Message</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+		  <property>
+			  <name>Driver Managament</name>
+			  <type>LABEL</type>
+			  <default>Driver Management</default>
+		  </property>
+	      <property>
+	        <name>Version</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Auto Update</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+			  <item>Force</item>
+	        </items>
+	      </property>
+	      <property>
+	        <name>Debug Mode</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+	        </items>
+	      </property>
+	    </properties>
+  	   <actions>
+  		   <action>
+  			   <name>Restart MQTT</name>
+  			   <command>RESTART_MQTT</command>
+  		   </action>
+		   <action>
+			   <name>Publish Home Assistant Configuration</name>
+			   <command>PUBLISH_HA</command>
+		   </action>
+  	   </actions>
+		<commands>
+			<command>
+				<name>Publish Message</name>
+				<description>Publishing PARAM2 To PARAM1</description>
+				<params>
+					<param>
+						<name>Topic</name>
+						<type>STRING</type>
+						<default></default>
+					</param>
+					<param>
+						<name>Message</name>
+						<type>STRING</type>
+						<default></default>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>Restart MQTT</name>
+				<description>Restart MQTT</description>
+			</command>
+		</commands>
+	</config>
+    <connections>
+      <connection>
+        <id>5000</id>
+        <connectionname>Berto_HomeAssistant</connectionname>
+        <facing>6</facing>
+        <type>2</type>
+        <consumer>false</consumer>
+        <audiosource>false</audiosource>
+        <videosource>false</videosource>
+        <linelevel>false</linelevel>
+        <classes>
+          <class>
+            <classname>Berto_HomeAssistant</classname>
+          </class>
+        </classes>
+      </connection>
+    </connections>
+</devicedata>

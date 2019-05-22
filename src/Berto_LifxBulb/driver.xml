@@ -1,0 +1,264 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Lifx Bulb</name>
+	<version>1</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>10/10/2018 8:49 PM</created>
+	<modified>10/10/2018 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Lifx Light" >light_v2</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+			<property>
+				<name>Registered Bulbs</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Selected Bulb</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>IP Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Location</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Group</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Name</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Brightness</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Hue</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Saturation</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Kelvin</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Online</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+		<commands>
+			<command>
+				<name>Set HSBK</name>
+				<description>Setting The HSBK To PARAM1, PARAM2, PARAM3 and PARAM4</description>
+				<params>
+					<param>
+						<name>Hue</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>-1</minimum>
+						<maximum>65535</maximum>
+					</param>
+					<param>
+						<name>Saturation</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>-1</minimum>
+						<maximum>65535</maximum>
+					</param>
+					<param>
+						<name>Brightness</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>-1</minimum>
+						<maximum>65535</maximum>
+					</param>
+					<param>
+						<name>Kelvin</name>
+						<type>RANGED_INTEGER</type>
+						<minimum>-1</minimum>
+						<maximum>9000</maximum>
+					</param>
+				</params>
+			</command>
+			<command>
+				<name>Set Color</name>
+				<description>Setting The RGB Color To PARAM1</description>
+				<params>
+					<param>
+						<name>RGB</name>
+						<type>COLOR_SELECTOR</type>
+					</param>
+				</params>
+			</command>
+		</commands>
+	</config>
+    <capabilities>
+      <dimmer>True</dimmer>
+      <on_off>True</on_off>
+      <set_level>True</set_level>
+      <ramp_level>True</ramp_level>
+      <min_max>False</min_max>
+      <click_rates>True</click_rates>
+      <hold_rates>True</hold_rates>
+      <cold_start>True</cold_start>
+      <has_leds>False</has_leds>
+      <supports_broadcast_scenes>False</supports_broadcast_scenes>
+      <supports_multichannel_scenes>False</supports_multichannel_scenes>
+      <hide_proxy_properties>False</hide_proxy_properties>
+      <hide_proxy_events>False</hide_proxy_events>
+	  <advanced_scene_support>True</advanced_scene_support>
+	  <reduced_als_support>False</reduced_als_support>
+      <load_group_support>False</load_group_support>
+      <buttons_are_virtual>True</buttons_are_virtual>
+    </capabilities>
+    <connections>
+		<connection>
+			<id>1</id>
+			<facing>1</facing>
+			<connectionname>Berto Lifx Bridge</connectionname>
+			<type>1</type>
+			<consumer>True</consumer>
+			<audiosource>False</audiosource>
+			<videosource>False</videosource>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>LIFX_LINK</classname>
+					<autobind>True</autobind>
+				</class>
+			</classes>
+		</connection>
+        <connection>
+          <id>300</id>
+          <facing>6</facing>
+          <connectionname>Top Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>301</id>
+          <facing>6</facing>
+          <connectionname>Bottom Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>302</id>
+          <facing>6</facing>
+          <connectionname>Toggle Button Link</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>BUTTON_LINK</classname>
+            </class>
+          </classes>
+        </connection>
+        <connection>
+          <id>5000</id>
+          <facing>6</facing>
+          <connectionname>Light</connectionname>
+          <type>2</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>LIGHT_V2</classname>
+            </class>
+          </classes>
+        </connection>
+  	  </connections>
+</devicedata>

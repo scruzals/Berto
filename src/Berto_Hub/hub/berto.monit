@@ -1,0 +1,5 @@
+check process berto matching "berto"
+        group root
+        group root
+        start program = "/bin/systemctl start berto"
+        stop  program = "/bin/systemctl stop berto"

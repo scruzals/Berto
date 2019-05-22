@@ -1,0 +1,130 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto OwnTracks</name>
+	<version>1</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>09/11/2017 8:49 PM</created>
+	<modified>09/11/2017 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Owntracks" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_OwnTracks</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+	      <property>
+	        <name>Server</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Username</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	  	  <property>
+			  <name>Password</name>
+	  		  <type>STRING</type>
+	  		  <default></default>
+	  		  <password>true</password>
+	  	  </property>
+	      <property>
+	        <name>Topic</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default>owntracks/#</default>
+	      </property>
+	      <property>
+	        <name>Home Region Name</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default>Home</default>
+	      </property>
+	      <property>
+	        <name>Home Radius</name>
+			<type>RANGED_INTEGER</type>
+			<minimum>0</minimum>
+			<maximum>10000</maximum>
+			<default>1000</default>
+			<readonly>false</readonly>
+	      </property>
+		  <property>
+			  <name>Profiles</name>
+			  <type>DEVICE_SELECTOR</type>
+			  <readonly>false</readonly>
+			  <default />
+			  <multiselect>true</multiselect>
+			  <items>
+				  <item>Berto_Profile.c4z</item>
+			  </items>
+		  </property>
+	      <property>
+	        <name>Last Update</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Status</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+		<property>
+			<name>Driver Managament</name>
+			<type>LABEL</type>
+			<default>Driver Management</default>
+		</property>
+	      <property>
+	        <name>Version</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Auto Update</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+			  <item>Force</item>
+	        </items>
+	      </property>
+	      <property>
+	        <name>Debug Mode</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+	        </items>
+	      </property>
+	    </properties>
+	</config>
+	<connections>
+		<connection>
+			<id>5000</id>
+			<connectionname>Berto_OwnTracks</connectionname>
+			<facing>6</facing>
+			<type>2</type>
+			<consumer>false</consumer>
+			<audiosource>false</audiosource>
+			<videosource>false</videosource>
+			<linelevel>false</linelevel>
+			<classes>
+				<class>
+					<classname>Berto_OwnTracks</classname>
+				</class>
+			</classes>
+		</connection>  
+	</connections>
+</devicedata>

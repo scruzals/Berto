@@ -1,0 +1,162 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto IFTTT</name>
+	<version>5</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>02/07/2017 8:49 PM</created>
+	<modified>02/07/2017 8:50 PM</modified>
+    <proxy name="IFTTT" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_IFTTT</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+		<properties>
+  	      <property>
+  	        <name>IFTTT Key</name>
+  	        <type>STRING</type>
+  	        <readonly>false</readonly>
+  	        <default />
+  	      </property>
+		  <property>
+			  <name>Programming Variables</name>
+			  <type>LABEL</type>
+			  <default>Variables</default>
+		  </property>
+  	      <property>
+  	        <name>Text Variables</name>
+  	        <type>STRING</type>
+  	        <readonly>false</readonly>
+  	        <default>NAME</default>
+  	      </property>
+  	      <property>
+  	        <name>Number Variables</name>
+  	        <type>STRING</type>
+  	        <readonly>false</readonly>
+  	       <default>TEMPERATURE</default>
+  	      </property>
+  	      <property>
+  	        <name>Boolean Variables</name>
+  	        <type>STRING</type>
+  	        <readonly>false</readonly>
+  	        <default>STATE</default>
+  	      </property>
+		  <property>
+			  <name>Last IFTTT Message</name>
+			  <type>LABEL</type>
+			  <default>Driver Management</default>
+		  </property>
+	      <property>
+	        <name>Received</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Event</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Content Type</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Body</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Profile</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+		  <property>
+			  <name>Driver Managament</name>
+			  <type>LABEL</type>
+			  <default>Driver Management</default>
+		  </property>
+		  <property>
+			  <name>Version</name>
+			  <type>STRING</type>
+			  <readonly>true</readonly>
+			  <default />
+		  </property>
+		  <property>
+			  <name>Auto Update</name>
+			  <type>LIST</type>
+			  <readonly>false</readonly>
+			  <default>Off</default>
+			  <items>
+				  <item>On</item>
+				  <item>Off</item>
+				  <item>Force</item>
+			  </items>
+		  </property>
+		  <property>
+			  <name>Debug Mode</name>
+			  <type>LIST</type>
+			  <readonly>false</readonly>
+			  <default>Off</default>
+			  <items>
+				  <item>On</item>
+				  <item>Off</item>
+			  </items>
+		  </property>
+	  </properties>
+	  <commands>
+		<command>
+			<name>Send Event</name>
+			<description>Sending IFTTT Event PARAM1 With Values PARAM2 PARAM3 PARAM4</description>
+			<params>
+				<param>
+					<name>Event</name>
+					<type>STRING</type>
+					<default></default>
+				</param>
+				<param>
+					<name>Value 1</name>
+					<type>STRING</type>
+					<default></default>
+				</param>
+				<param>
+					<name>Value 2</name>
+					<type>STRING</type>
+					<default></default>
+				</param>
+				<param>
+					<name>Value 3</name>
+					<type>STRING</type>
+					<default></default>
+				</param>
+			</params>
+		</command>
+	</commands>
+	</config>
+	<connections>
+		<connection>
+			<id>5000</id>
+			<connectionname>Berto_Mail</connectionname>
+			<facing>6</facing>
+			<type>2</type>
+			<consumer>false</consumer>
+			<audiosource>false</audiosource>
+			<videosource>false</videosource>
+			<linelevel>false</linelevel>
+			<classes>
+				<class>
+					<classname>Berto_Mail</classname>
+				</class>
+			</classes>
+		</connection>  
+	</connections>
+</devicedata>

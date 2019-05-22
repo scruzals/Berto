@@ -1,0 +1,182 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Shelly Relay</name>
+	<version>1</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>10/10/2018 8:49 PM</created>
+	<modified>10/10/2018 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Berto Shelly Relay" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_ShellyRelay</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+			<property>
+				<name>Registered Devices</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Selected Device</name>
+		        <type>STRING</type>
+		        <readonly>true</readonly>
+		        <default />
+			</property>
+			<property>
+				<name>Model</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>MAC Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>IP Address</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Firmware</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Relay 1 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Button 1 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Relay 2 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Button 2 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Relay 3 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Button 3 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Relay 4 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Button 4 State</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Status</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+		<actions>
+			<action>
+				<name>Search For Devices</name>
+				<command>FIND_DEVICES</command>
+			</action>
+		</actions>
+	</config>
+    <connections>
+		<connection>
+			<id>100</id>
+			<facing>1</facing>
+			<connectionname>MQTT Bridge</connectionname>
+			<type>1</type>
+			<consumer>True</consumer>
+			<audiosource>False</audiosource>
+			<videosource>False</videosource>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>MQTT_LINK</classname>
+					<autobind>True</autobind>
+				</class>
+			</classes>
+		</connection>
+		<connection>
+			<id>5000</id>
+			<connectionname>Berto_ShellyRelay</connectionname>
+			<facing>6</facing>
+			<type>2</type>
+			<consumer>false</consumer>
+			<audiosource>false</audiosource>
+			<videosource>false</videosource>
+			<linelevel>false</linelevel>
+			<classes>
+				<class>
+					<classname>Berto_ShellyRelay</classname>
+				</class>
+			</classes>
+		</connection>
+	</connections>
+</devicedata>

@@ -1,0 +1,112 @@
+<devicedata>
+	<manufacturer>Berto Ltd</manufacturer>
+	<creator>David Massot</creator>
+	<name>Berto Lifx Bridge</name>
+	<version>2</version>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>other</controlmethod>
+	<driver>DriverWorks</driver>
+	<copyright>Copyright 2004-2017 Berto Ltd.  All rights reserved.</copyright>
+	<created>10/10/2018 8:49 PM</created>
+	<modified>10/10/2018 8:50 PM</modified>
+    <proxy proxybindingid="5000" name="Berto Lifx Bridge" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">Berto_LifxBridge</proxy>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+	    <properties>
+			<property>
+				<name>Devices</name>
+				<type>DYNAMIC_LIST</type>
+				<readonly>false</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Status</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Refresh Interval</name>
+				<type>RANGED_INTEGER</type>
+				<minimum>0</minimum>
+				<maximum>60</maximum>
+				<default>0</default>
+				<readonly>false</readonly>
+			</property>
+			<property>
+				<name>Driver Managament</name>
+				<type>LABEL</type>
+				<default>Driver Management</default>
+			</property>
+			<property>
+				<name>Version</name>
+				<type>STRING</type>
+				<readonly>true</readonly>
+				<default />
+			</property>
+			<property>
+				<name>Auto Update</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+					<item>Force</item>
+				</items>
+			</property>
+			<property>
+				<name>Debug Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>On</item>
+					<item>Off</item>
+				</items>
+			</property>
+		</properties>
+		<actions>
+			<action>
+				<name>Search For Devices</name>
+				<command>FIND_DEVICES</command>
+			</action>
+		</actions>
+	</config>
+    <connections>
+        <connection>
+          <id>1</id>
+          <facing>1</facing>
+          <connectionname>LIFX Devices</connectionname>
+          <type>1</type>
+          <consumer>False</consumer>
+          <audiosource>False</audiosource>
+          <videosource>False</videosource>
+          <linelevel>True</linelevel>
+          <classes>
+            <class>
+              <classname>LIFX_LINK</classname>
+              <autobind>True</autobind>
+            </class>
+          </classes>
+        </connection>
+		<connection>
+			<id>5000</id>
+			<connectionname>Berto_LifxBridge</connectionname>
+			<facing>6</facing>
+			<type>2</type>
+			<consumer>false</consumer>
+			<audiosource>false</audiosource>
+			<videosource>false</videosource>
+			<linelevel>false</linelevel>
+			<classes>
+				<class>
+					<classname>Berto_LifxBridge</classname>
+				</class>
+			</classes>
+		</connection>
+  	  </connections>
+</devicedata>

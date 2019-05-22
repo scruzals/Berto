@@ -1,0 +1,395 @@
+﻿<devicedata>
+	<copyright>Copyright Berto Ltd. All rights reserved.</copyright>
+	<creator>David Massot</creator>
+	<manufacturer>Berto Ltd</manufacturer>
+	<name>Berto Sky Q</name>
+	<version>1</version>
+	<created>02/02/2017 8:47 PM</created>
+	<modified>06/02/2017 8:47 PM</modified>
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+	<control>lua_gen</control>
+	<controlmethod>ip</controlmethod>
+	<driver>DriverWorks</driver>
+	<config>
+		<script file="squish.lua" encryption="2" />
+		<documentation file = "README.html">https://github.com/davidmassot/Berto</documentation>
+		<irsettings />
+		<power_command_delay>0</power_command_delay>
+		<power_delay>0</power_delay>
+		<power_management_method>AlwaysOn</power_management_method>
+		<rfs>
+			<rf>rf_uhf_vhf</rf>
+		</rfs>
+	    <properties>
+	      <property>
+	        <name>IP Address</name>
+	        <type>STRING</type>
+	        <readonly>false</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>MAC Address</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Model</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Firmware</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Viewing Card Number</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Red Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>RED BUTTON</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Green Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>GREEN BUTTON</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Yellow Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>YELLOW BUTTON</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Blue Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>BLUE BUTTON</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 1 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 2 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Custom 3 Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Hash Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+	      <property>
+	        <name>Star Button</name>
+	        <type>LIST</type>
+	        <items>
+	          <item>DISMISS</item>
+	          <item>INTERACTIVE</item>
+	          <item>SIDEBAR</item>
+	          <item>HELP</item>
+	          <item>SERVICES</item>
+	          <item>SEARCH</item>
+	          <item>BOX OFFICE</item>
+	          <item>HOME</item>
+	          <item>TEXT</item>
+			  <item>RED BUTTON</item>
+			  <item>GREEN BUTTON</item>
+			  <item>YELLOW BUTTON</item>
+			  <item>BLUE BUTTON</item>
+	          <item>NONE</item>
+	        </items>
+	        <default>NONE</default>
+	        <readonly>false</readonly>
+	      </property>
+		  <property>
+			  <name>Driver Managament</name>
+			  <type>LABEL</type>
+			  <default>Driver Management</default>
+		  </property>
+	      <property>
+	        <name>Version</name>
+	        <type>STRING</type>
+	        <readonly>true</readonly>
+	        <default />
+	      </property>
+	      <property>
+	        <name>Auto Update</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+			  <item>Force</item>
+	        </items>
+	      </property>
+	      <property>
+	        <name>Debug Mode</name>
+	        <type>LIST</type>
+	        <readonly>false</readonly>
+	        <default>Off</default>
+	        <items>
+	          <item>On</item>
+	          <item>Off</item>
+	        </items>
+	      </property>
+	    </properties>
+	</config>
+	<proxy proxybindingid="5000" name="Sky Q" primary="True" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">satellite</proxy>
+	<connections>
+		<connection>
+			<id>1000</id>
+			<type>5</type>
+			<connectionname>Satellite</connectionname>
+			<consumer>True</consumer>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>RF_SKY</classname>
+				</class>
+			</classes>
+		</connection>
+		<connection>
+			<id>7000</id>
+			<type>7</type>
+			<connectionname>Audio/Video End-Point</connectionname>
+			<consumer>False</consumer>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>AUDIO_SELECTION</classname>
+				</class>
+				<class>
+					<classname>AUDIO_VOLUME</classname>
+				</class>
+				<class>
+					<classname>VIDEO_SELECTION</classname>
+				</class>
+			</classes>
+		</connection>
+	    <connection>
+	      <id>2000</id>
+	      <facing>6</facing>
+	      <connectionname>Output</connectionname>
+	      <type>5</type>
+	      <consumer>False</consumer>
+	      <audiosource>True</audiosource>
+	      <videosource>True</videosource>
+	      <linelevel>True</linelevel>
+	      <classes>
+	        <class>
+	          <classname>HDMI</classname>
+	        </class>
+	        <class>
+	          <classname>STEREO</classname>
+	        </class>
+	        <class>
+	          <classname>DIGITAL_OPTICAL</classname>
+	        </class>
+	        <class>
+	          <classname>DIGITAL_COAX</classname>
+	        </class>
+	      </classes>
+	    </connection>
+		<connection>
+			<id>4000</id>
+			<type>6</type>
+			<connectionname>Output</connectionname>
+			<consumer>False</consumer>
+			<linelevel>True</linelevel>
+			<classes>
+				<class>
+					<classname>DIGITAL_OPTICAL</classname>
+				</class>
+			</classes>
+		</connection>
+		<connection>
+			<id>5000</id>
+			<type>2</type>
+			<connectionname>Satellite Receiver</connectionname>
+			<consumer>False</consumer>
+			<linelevel>False</linelevel>
+			<classes>
+				<class>
+					<classname>SATELLITE</classname>
+				</class>
+			</classes>
+		</connection>
+	</connections>
+	<capabilities>
+		<navigator_display_option proxybindingid="5000">
+			<display_icons>
+				<Icon height="140" width="140">controller://driver/Berto_SkyQ/icons/device/experience_140.png</Icon>
+				<Icon height="130" width="120">controller://driver/Berto_SkyQ/icons/device/experience_130.png</Icon>
+				<Icon height="120" width="120">controller://driver/Berto_SkyQ/icons/device/experience_120.png</Icon>
+				<Icon height="110" width="110">controller://driver/Berto_SkyQ/icons/device/experience_110.png</Icon>
+				<Icon height="100" width="100">controller://driver/Berto_SkyQ/icons/device/experience_100.png</Icon>
+				<Icon height="90" width="90">controller://driver/Berto_SkyQ/icons/device/experience_90.png</Icon>
+				<Icon height="80" width="80">controller://driver/Berto_SkyQ/icons/device/experience_80.png</Icon>
+				<Icon height="70" width="70">controller://driver/Berto_SkyQ/icons/device/experience_70.png</Icon>
+				<Icon height="60" width="60">controller://driver/Berto_SkyQ/icons/device/experience_60.png</Icon>
+				<Icon height="50" width="50">controller://driver/Berto_SkyQ/icons/device/experience_50.png</Icon>
+				<Icon height="40" width="40">controller://driver/Berto_SkyQ/icons/device/experience_40.png</Icon>
+				<Icon height="30" width="30">controller://driver/Berto_SkyQ/icons/device/experience_30.png</Icon>
+				<Icon height="20" width="20">controller://driver/Berto_SkyQ/icons/device/experience_20.png</Icon>
+			</display_icons>
+		</navigator_display_option>
+		<audio_consumer_count>0</audio_consumer_count>
+		<audio_provider_count>1</audio_provider_count>
+		<can_be_dvr>True</can_be_dvr>
+		<has_channel_up_down>True</has_channel_up_down>
+		<has_discrete_channel_select>True</has_discrete_channel_select>
+		<has_toad_input_select>False</has_toad_input_select>
+		<video_consumer_count>1</video_consumer_count>
+		<video_provider_count>1</video_provider_count>
+	</capabilities>
+</devicedata>
